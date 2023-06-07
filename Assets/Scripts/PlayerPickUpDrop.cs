@@ -16,6 +16,7 @@ public class PlayerPickUpDrop : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (objectGrabbable == null)
+
             { //Not carrying object, try to grab object
                 float pickUpDistance = 2f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
@@ -26,7 +27,8 @@ public class PlayerPickUpDrop : MonoBehaviour
                     objectGrabbable.Grab(objectGrabPointTransform);
                     Debug.Log(objectGrabbable);
                 }
-            } else
+            } 
+            else
             {
                 // Currently carrying something, drop object
                 objectGrabbable.Drop();
