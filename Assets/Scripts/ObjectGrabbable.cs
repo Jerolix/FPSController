@@ -6,7 +6,7 @@ public class ObjectGrabbable : MonoBehaviour
 {
 
     private Rigidbody objectRigidbody;
-    private Transform objectGrabPointTransform;
+    public Transform objectGrabPointTransform;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class ObjectGrabbable : MonoBehaviour
 
     public void Drop()
     {
-        this.objectGrabPointTransform = null;
+        objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
     }
 

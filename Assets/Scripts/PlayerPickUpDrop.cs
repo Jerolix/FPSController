@@ -10,8 +10,9 @@ public class PlayerPickUpDrop : MonoBehaviour
     [SerializeField] private Transform objectGrabPointTransform;
 
 
-    private ObjectGrabbable objectGrabbable;
-    void Update()
+    public ObjectGrabbable objectGrabbable;
+
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
