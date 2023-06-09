@@ -6,7 +6,8 @@ public class ObjectGrabbable : MonoBehaviour
 {
 
     private Rigidbody objectRigidbody;
-    public Transform objectGrabPointTransform;
+    private Transform objectGrabPointTransform;
+    public int itemTypeNumber;
 
     private void Awake()
     {
