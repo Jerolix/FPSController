@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject myPrefab1;
     public GameObject myPrefab2;
     public GameObject myPrefab3;
+    public GameObject myPrefab4;
+    public GameObject Cauldron;
     public bool Prefab1Exists = false;
     public bool Prefab2Exists = false;
     public bool Prefab3Exists = false;
@@ -41,6 +44,10 @@ public class ObjectSpawner : MonoBehaviour
         {
             Prefab3Exists = true;
             Instantiate(myPrefab3, new Vector3(-2, 4, -17), Quaternion.identity);
+        }
+        if (Cauldron.GetComponent<PotionMix>().CheckMatch() == true)
+        {
+            Instantiate(myPrefab4, new Vector3(4, 4, -17), Quaternion.identity);
         }
     }
 

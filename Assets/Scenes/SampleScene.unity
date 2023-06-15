@@ -232,9 +232,12 @@ MonoBehaviour:
   myPrefab1: {fileID: 2315932180945282619, guid: a17ff95083dd9254cbc46865680a2993, type: 3}
   myPrefab2: {fileID: 4900621546762794028, guid: 9c12b28263c4501459ac07caecc10c49, type: 3}
   myPrefab3: {fileID: 7718940371729248340, guid: 54b457177d1ebb544bb16a5a50af5f16, type: 3}
+  myPrefab4: {fileID: 5732183622047177646, guid: 2952e22529202e34dac3b65009dd6fdf, type: 3}
+  Cauldron: {fileID: 1719647229}
   Prefab1Exists: 0
   Prefab2Exists: 0
   Prefab3Exists: 0
+  Prefab4Exists: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
