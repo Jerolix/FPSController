@@ -10,10 +10,13 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject myPrefab2;
     public GameObject myPrefab3;
     public GameObject myPrefab4;
+    public GameObject myPrefab5;
+    public GameObject myPrefab6;
     public GameObject Cauldron;
     public bool Prefab1Exists = false;
     public bool Prefab2Exists = false;
     public bool Prefab3Exists = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +48,17 @@ public class ObjectSpawner : MonoBehaviour
             Prefab3Exists = true;
             Instantiate(myPrefab3, new Vector3(-2, 4, -17), Quaternion.identity);
         }
-        if (Cauldron.GetComponent<PotionMix>().CheckMatch() == true)
+        if (Cauldron.GetComponent<PotionMix>().CheckMatch1() == true)
         {
             Instantiate(myPrefab4, new Vector3(4, 4, -17), Quaternion.identity);
+        }
+        if (Cauldron.GetComponent<PotionMix>().CheckMatch2() == true)
+        {
+            Instantiate(myPrefab5, new Vector3(4, 4, -17), Quaternion.identity);
+        }
+        if (Cauldron.GetComponent<PotionMix>().CheckMatch3() == true)
+        {
+            Instantiate(myPrefab6, new Vector3(6, 4, -17), Quaternion.identity);
         }
     }
 
