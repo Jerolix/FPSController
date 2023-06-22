@@ -1073,6 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectSpawner: {fileID: 108747924}
+  failedPots: 0
 --- !u!1 &1870392027
 GameObject:
   m_ObjectHideFlags: 0

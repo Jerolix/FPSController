@@ -1,6 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
@@ -21,9 +18,7 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(myPrefab1, new Vector3(2, 4, -17), Quaternion.identity);
-        //Instantiate(myPrefab2, new Vector3(0, 4, -17), Quaternion.identity);
-        //Instantiate(myPrefab3, new Vector3(-2, 4, -17), Quaternion.identity);
+
     }
 
     // Update is called once per frame
@@ -33,10 +28,10 @@ public class ObjectSpawner : MonoBehaviour
     }
     public void SpawnFunction()
     {
-        if (Prefab1Exists == false)
+        if (Prefab1Exists == false) // If object does not exist...
         {
-            Prefab1Exists = true;
-            Instantiate(myPrefab1, new Vector3(2, 4, -17), Quaternion.identity);
+            Prefab1Exists = true; // It now exists and...
+            Instantiate(myPrefab1, new Vector3(2, 4, -17), Quaternion.identity); // The object is instantiated.
         }
         if (Prefab2Exists == false)
         {
@@ -48,9 +43,9 @@ public class ObjectSpawner : MonoBehaviour
             Prefab3Exists = true;
             Instantiate(myPrefab3, new Vector3(-2, 4, -17), Quaternion.identity);
         }
-        if (Cauldron.GetComponent<PotionMix>().CheckMatch1() == true)
+        if (Cauldron.GetComponent<PotionMix>().CheckMatch1() == true) // If current mix matches with this recipe...
         {
-            Instantiate(myPrefab4, new Vector3(4, 4, -17), Quaternion.identity);
+            Instantiate(myPrefab4, new Vector3(4, 4, -17), Quaternion.identity); // Spawn the corresponding potion.
         }
         if (Cauldron.GetComponent<PotionMix>().CheckMatch2() == true)
         {

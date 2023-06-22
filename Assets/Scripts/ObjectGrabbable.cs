@@ -20,13 +20,13 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidbody.useGravity = false;
     }
 
-    public void Drop()
+    public void Drop() // Drops and turns gravity back on the object.
     {
         objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() // Uses lerp to ensure that the object is not 
     {
         if (objectGrabPointTransform != null)
         {

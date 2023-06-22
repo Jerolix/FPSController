@@ -19,7 +19,7 @@ public class PlayerPickUpDrop : MonoBehaviour
             if (objectGrabbable == null)
 
             { //Not carrying object, try to grab object
-                float pickUpDistance = 2f;
+                float pickUpDistance = 3f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
                     Debug.Log(raycastHit.transform);
 

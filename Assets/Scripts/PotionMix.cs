@@ -1,10 +1,4 @@
-using JetBrains.Annotations;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PotionMix : MonoBehaviour
@@ -12,10 +6,11 @@ public class PotionMix : MonoBehaviour
     public GameObject objectSpawner;
     public int failedPots = 0;
 
-    List<int> currentMix = new List<int>();
-    List<int> recipe1 = new List<int>() { 0, 1, 2 };
-    List<int> recipe2 = new List<int>() { 0, 0, 2 };
-    List<int> recipe3 = new List<int>() { 0, 1, 1 };
+    List<int> currentMix = new List<int>(); // This list shows what is currently in the cauldron.
+    List<int> recipe1 = new List<int>() { 0, 1, 2 }; // First potion recipe, Mana Potion.
+    List<int> recipe2 = new List<int>() { 0, 0, 2 }; // Second potion recipe, Health Potion.
+    List<int> recipe3 = new List<int>() { 0, 1, 1 }; // Third potion recipe, Rage Potion.
+
     void Start()
     {
 
@@ -24,21 +19,21 @@ public class PotionMix : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FailedPots();
+        FailedPots(); // This is here to allow the function to be called.
 
     }
 
-    public void FailedPots() 
+    public void FailedPots() // Keeps track of how many times the current mix is checked against all recipes.
     {
-        if (failedPots > 2)
+        if (failedPots > 2) // If the current mix doesn't match any recipe. Change value here to however many potion recipes there are minus 1.
         {
-            currentMix.Clear();
-            failedPots = 0;
+            currentMix.Clear(); // Clears the current mix in the cauldron.
+            failedPots = 0; // Resets the failed recipe counter so it can compare the next batch.
             Debug.Log("Pot Cleared ");
         }
     }
 
-    public bool CheckMatch1()
+    public bool CheckMatch1() // Function which checks if the current mix matches recipe 1.
     {
         if (currentMix.Count != recipe1.Count)
         {
@@ -58,7 +53,7 @@ public class PotionMix : MonoBehaviour
         return true;
     }
 
-    public bool CheckMatch2()
+    public bool CheckMatch2() // Function which checks if the current mix matches recipe 2.
     {
         if (currentMix.Count != recipe2.Count)
         {
@@ -78,7 +73,7 @@ public class PotionMix : MonoBehaviour
         return true;
     }
 
-    public bool CheckMatch3()
+    public bool CheckMatch3() // Function which checks if the current mix matches recipe 3.
     {
         if (currentMix.Count != recipe3.Count)
         {
@@ -106,7 +101,6 @@ public class PotionMix : MonoBehaviour
             ObjectGrabbable OG = other.gameObject.GetComponent<ObjectGrabbable>();
             int numberOfDroppedItem = OG.itemTypeNumber;
             //Debug.Log(OG.itemTypeNumber);
-            //ingredientsAdded++; This ups a tally
 
             if (other.name == "0-GoblinToe(Clone)")
             {
