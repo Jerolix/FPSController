@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,12 +23,15 @@ public class PlayerPickUpDrop : MonoBehaviour
                 float pickUpDistance = 3f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask))
                     Debug.Log(raycastHit.transform);
-
-                if (raycastHit.transform.TryGetComponent(out objectGrabbable))
+                try 
                 {
-                    objectGrabbable.Grab(objectGrabPointTransform);
-                    Debug.Log(objectGrabbable);
+                    if (raycastHit.transform.TryGetComponent(out objectGrabbable))
+                    {
+                        objectGrabbable.Grab(objectGrabPointTransform);
+                        Debug.Log(objectGrabbable);
+                    }
                 }
+                catch (NullReferenceException) { }
             } 
             else
             {
