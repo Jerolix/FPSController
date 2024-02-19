@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.18f * 2;
     public float jumpHeight = 3f;
+    public float groundPoundVelocity = 10f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    bool isGroundPounding;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,17 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.slopeLimit = 100f;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        if(isGrounded && isGroundPounding)
+        {
+            isGroundPounding = false;
+        }
+
+        if (!isGrounded && !isGroundPounding && Input.GetButtonDown("Fire2"))
+        {
+            isGroundPounding = true;
+            velocity.y -= groundPoundVelocity;
         }
 
         velocity.y += gravity * Time.deltaTime;
